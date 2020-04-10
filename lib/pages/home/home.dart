@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                 Consumer<DailyCasesProvider>(
                   builder: (ctx, dailyCases, child) => Card(
                     child: Container(
-                      height: 220,
+                      height: 230,
                       width: MediaQuery.of(context).size.width,
                       padding: padding_child,
                       child: Column(
@@ -45,13 +45,13 @@ class HomeScreen extends StatelessWidget {
                           dailyCases.data["loading"] == true
                               ? Text("Loading...")
                               : Container(
-                                  height: 180,
+                                  height: 190,
                                   padding: padding_child_vertical,
                                   child: BezierChart(
-                                    // key: _chartKey,
                                     fromDate: DateTime.now().subtract(
                                       Duration(
-                                        days: dailyCases.data["data"].length,
+                                        days:
+                                            dailyCases.data["data"].length - 2,
                                       ),
                                     ),
                                     bezierChartScale: BezierChartScale.WEEKLY,
@@ -62,18 +62,30 @@ class HomeScreen extends StatelessWidget {
                                         lineColor: blueColor,
                                         label: "Kasus",
                                         onMissingValue: (x) {
-                                          return dailyCases.data["data"][
-                                                  dailyCases
+                                          return dailyCases
+                                              .data["data"][dailyCases
+                                                              .data["data"]
+                                                              .length -
+                                                          DateTime.now()
+                                                              .difference(x)
+                                                              .inDays >=
+                                                      0
+                                                  ? dailyCases
                                                           .data["data"].length -
+                                                      2 -
                                                       DateTime.now()
                                                           .difference(x)
-                                                          .inDays]
-                                                  ["jumlahKasusKumulatif"]
+                                                          .inDays
+                                                  : 0]["jumlahKasusKumulatif"]
                                               .toDouble();
                                         },
                                         data: [
                                           DataPoint<DateTime>(
-                                            value: 10,
+                                            value: dailyCases
+                                                .data["data"][dailyCases
+                                                        .data["data"].length -
+                                                    1]["jumlahKasusKumulatif"]
+                                                .toDouble(),
                                             xAxis: DateTime.now(),
                                           ),
                                         ],
@@ -81,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                                     ],
                                     config: BezierChartConfig(
                                       backgroundColor: darkBlue,
-                                      footerHeight: 40.0,
+                                      footerHeight: 45.0,
                                     ),
                                   ),
                                 ),
