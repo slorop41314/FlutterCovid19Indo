@@ -10,8 +10,6 @@ class HomeHeader extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
-  // final GlobalKey<ScaffoldState> _scaffoldKey;
-
   @override
   Widget build(BuildContext context) {
     return Container(

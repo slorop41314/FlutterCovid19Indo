@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:covid_19_mob/pages/home/home.dart';
+import 'package:covid_19_mob/theme/metrics.dart';
 import 'package:covid_19_mob/utils/constants.dart';
 import 'package:covid_19_mob/utils/image_data.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               Container(
                 width: 180,
+                padding: padding_child_vertical,
                 child: Text(
                   'COVID 19 Information',
                   textAlign: TextAlign.center,

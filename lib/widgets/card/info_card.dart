@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 
 class InfoCard extends StatelessWidget {
   String type;
-  String numberOfCase;
+  int numberOfCase;
+  int gapYesterday;
 
-  InfoCard({
-    @required this.type,
-    this.numberOfCase = "0",
-  });
+  InfoCard({@required this.type, this.numberOfCase = 0, this.gapYesterday});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -19,22 +17,22 @@ class InfoCard extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Color(0xffffdd94),
+                      color: Color(0xff66deff),
                     ),
                     padding: EdgeInsets.all(5),
                     child: Icon(
                       Icons.add,
                       size: 12,
-                      color: Colors.orange,
+                      color: Colors.blue,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       this.numberOfCase.toString(),
                       style: TextStyle(
-                        color: Colors.orange,
-                        fontSize: 25,
+                        color: Colors.blue,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -42,9 +40,31 @@ class InfoCard extends StatelessWidget {
                   Text(
                     "KASUS",
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 8,
                     ),
                   ),
+                  this.gapYesterday == null
+                      ? Container()
+                      : Column(
+                          children: <Widget>[
+                            Divider(
+                              indent: 8,
+                              endIndent: 8,
+                            ),
+                            Text(
+                              "+ $gapYesterday",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              "today",
+                              style: TextStyle(fontSize: 8),
+                            )
+                          ],
+                        ),
                 ],
               )
             : this.type == "sembuh"
@@ -62,12 +82,12 @@ class InfoCard extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Text(
                         this.numberOfCase.toString(),
                         style: TextStyle(
                           color: Colors.green,
-                          fontSize: 25,
+                          fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -75,43 +95,143 @@ class InfoCard extends StatelessWidget {
                     Text(
                       "SEMBUH",
                       style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 8,
                       ),
                     ),
-                  ])
-                : Column(
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(0xfffcb7a7),
-                        ),
-                        padding: EdgeInsets.all(5),
-                        child: Icon(
-                          Icons.close,
-                          size: 12,
-                          color: Colors.red,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10.0),
-                        child: Text(
-                          this.numberOfCase.toString(),
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
+                    this.gapYesterday == null
+                        ? Container()
+                        : Column(
+                            children: <Widget>[
+                              Divider(
+                                indent: 8,
+                                endIndent: 8,
+                              ),
+                              Text(
+                                "+ $gapYesterday",
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                "today",
+                                style: TextStyle(fontSize: 8),
+                              )
+                            ],
                           ),
-                        ),
+                  ])
+                : this.type == "wafat"
+                    ? Column(
+                        children: <Widget>[
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xfffcb7a7),
+                            ),
+                            padding: EdgeInsets.all(5),
+                            child: Icon(
+                              Icons.close,
+                              size: 12,
+                              color: Colors.red,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              this.numberOfCase.toString(),
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "WAFAT",
+                            style: TextStyle(
+                              fontSize: 8,
+                            ),
+                          ),
+                          this.gapYesterday == null
+                              ? Container()
+                              : Column(
+                                  children: <Widget>[
+                                    Divider(
+                                      indent: 8,
+                                      endIndent: 8,
+                                    ),
+                                    Text(
+                                      "+ $gapYesterday",
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Text(
+                                      "today",
+                                      style: TextStyle(fontSize: 8),
+                                    )
+                                  ],
+                                ),
+                        ],
+                      )
+                    : Column(
+                        children: <Widget>[
+                          Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xffffdd94),
+                            ),
+                            padding: EdgeInsets.all(5),
+                            child: Icon(
+                              Icons.healing,
+                              size: 12,
+                              color: Colors.orange,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(
+                              this.numberOfCase.toString(),
+                              style: TextStyle(
+                                color: Colors.orange,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "DIRAWAT",
+                            style: TextStyle(
+                              fontSize: 8,
+                            ),
+                          ),
+                          this.gapYesterday == null
+                              ? Container()
+                              : Column(
+                                  children: <Widget>[
+                                    Divider(
+                                      indent: 8,
+                                      endIndent: 8,
+                                    ),
+                                    Text(
+                                      "+ $gapYesterday",
+                                      style: TextStyle(
+                                        color: Colors.orange,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Text(
+                                      "today",
+                                      style: TextStyle(fontSize: 8),
+                                    )
+                                  ],
+                                ),
+                        ],
                       ),
-                      Text(
-                        "WAFAT",
-                        style: TextStyle(
-                          fontSize: 10,
-                        ),
-                      ),
-                    ],
-                  ),
       ),
     );
   }
