@@ -4,6 +4,7 @@ import 'package:covid_19_mob/pages/home/widget/patient_information.dart';
 import 'package:covid_19_mob/providers/dailycases_provider.dart';
 import 'package:covid_19_mob/theme/metrics.dart';
 import 'package:covid_19_mob/utils/constants.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -13,8 +14,38 @@ import '../../providers/provinsicases_provider.dart';
 import '../../theme/metrics.dart';
 import '../../utils/constants.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const route_name = "/auth/";
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // BannerAd _bannerAd;
+
+  // BannerAd createBannerAd() {
+  //   return BannerAd(
+  //     adUnitId: BannerAd.testAdUnitId,
+  //     size: AdSize.banner,
+  //     listener: (MobileAdEvent event) {
+  //       print("BannerAd event $event");
+  //     },
+  //   );
+  // }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   FirebaseAdMob.instance.initialize(appId: FirebaseAdMob.testAppId);
+  //   _bannerAd = createBannerAd()..load();
+  // }
+
+  // @override
+  // void dispose() {
+  //   _bannerAd?.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      PatientInformation(),
+                      PatientInformation(showAds: (){},),
                     ],
                   ),
                 ),
@@ -143,12 +174,14 @@ class HomeScreen extends StatelessWidget {
                                                             [dailyCases.data["data"].length - 1][
                                                         "jumlahKasusKumulatif"] !=
                                                     null
-                                                ? dailyCases.data["data"][dailyCases
-                                                        .data["data"].length -
-                                                    1]["jumlahKasusKumulatif"].toDouble()
-                                                : dailyCases.data["data"]
-                                                        [dailyCases.data["data"].length - 2]
+                                                ? dailyCases.data["data"]
+                                                        [dailyCases.data["data"].length - 1]
                                                         ["jumlahKasusKumulatif"]
+                                                    .toDouble()
+                                                : dailyCases.data["data"][dailyCases
+                                                            .data["data"]
+                                                            .length -
+                                                        2]["jumlahKasusKumulatif"]
                                                     .toDouble(),
                                             xAxis: DateTime.now(),
                                           ),
@@ -166,6 +199,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                
                 Consumer<ProvinceCasesProvider>(
                   builder: (context, provinceData, child) => Card(
                     child: Container(

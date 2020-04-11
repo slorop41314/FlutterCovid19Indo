@@ -7,9 +7,9 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class PatientInformation extends StatelessWidget {
-  const PatientInformation({
-    Key key,
-  }) : super(key: key);
+  final Function showAds;
+
+  PatientInformation({@required this.showAds});
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +58,7 @@ class PatientInformation extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
+                      this.showAds();
                       Navigator.of(context)
                           .pushNamed(KasusProvinsiScreen.route_name);
                     },
