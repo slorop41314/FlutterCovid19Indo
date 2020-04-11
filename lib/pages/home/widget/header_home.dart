@@ -3,6 +3,8 @@ import 'package:covid_19_mob/widgets/icon/custom_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../theme/metrics.dart';
+
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
     Key key,
@@ -18,6 +20,7 @@ class HomeHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
+            padding: padding_child_vertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

@@ -6,6 +6,7 @@ class ProvinceCasesProvider with ChangeNotifier {
   Response response;
   Dio dio = new Dio();
   List<dynamic> _data = [];
+  Map _selectedProvince;
   bool _error = false;
   bool _loading = true;
 
@@ -21,14 +22,24 @@ class ProvinceCasesProvider with ChangeNotifier {
     getProvinceCase();
   }
 
+  dynamic get selectedProvince {
+    return _selectedProvince;
+  }
+
+  void selectProvince(item) {
+    _selectedProvince = item;
+    notifyListeners();
+  }
+
   void getProvinceCase() async {
     try {
       response = await dio.get(
         "$mat_url/provinsi",
       );
+      _data = response.data["data"];
+      _selectedProvince = response.data["data"][0];
       _error = false;
       _loading = false;
-      _data = response.data["data"];
       notifyListeners();
     } on DioError catch (err) {
       _error = true;

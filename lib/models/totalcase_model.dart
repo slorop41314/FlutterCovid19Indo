@@ -1,15 +1,12 @@
 import "package:flutter/material.dart";
-
-class TotalCase {
-  String name;
-  int positif;
-  int negatif;
-  int meninggal;
-
-  TotalCase({
-    @required this.name,
-    @required this.positif,
-    @required this.negatif,
-    @required this.meninggal,
+import 'package:charts_flutter/flutter.dart' as charts;
+class CaseModel {
+  final String type;
+  final int value;
+  final charts.Color barColor;
+  CaseModel({
+    @required this.type,
+    @required this.value,
+    @required this.barColor
   });
 }
