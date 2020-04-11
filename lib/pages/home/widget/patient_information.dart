@@ -46,7 +46,6 @@ class PatientInformation extends StatelessWidget {
                                             ["tanggal"]))
                                 .toString()
                             : "...",
-                        // style: Theme.of(context).textTheme.title,
                       ),
                     ],
                   ),

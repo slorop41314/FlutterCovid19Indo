@@ -145,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                                                     null
                                                 ? dailyCases.data["data"][dailyCases
                                                         .data["data"].length -
-                                                    1]["jumlahKasusKumulatif"]
+                                                    1]["jumlahKasusKumulatif"].toDouble()
                                                 : dailyCases.data["data"]
                                                         [dailyCases.data["data"].length - 2]
                                                         ["jumlahKasusKumulatif"]
