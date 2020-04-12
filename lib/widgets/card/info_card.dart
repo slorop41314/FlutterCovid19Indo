@@ -60,7 +60,7 @@ class InfoCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "today",
+                              "hari ini",
                               style: TextStyle(fontSize: 8),
                             )
                           ],
@@ -115,7 +115,7 @@ class InfoCard extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                "today",
+                                "hari ini",
                                 style: TextStyle(fontSize: 8),
                               )
                             ],
@@ -170,7 +170,7 @@ class InfoCard extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      "today",
+                                      "hari ini",
                                       style: TextStyle(fontSize: 8),
                                     )
                                   ],
@@ -225,7 +225,7 @@ class InfoCard extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      "today",
+                                      "hari ini",
                                       style: TextStyle(fontSize: 8),
                                     )
                                   ],

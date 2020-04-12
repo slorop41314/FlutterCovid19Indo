@@ -32,7 +32,7 @@ class PatientInformation extends StatelessWidget {
                       Text("Update terakhir : "),
                       Text(
                         dailyCase.data["data"].length > 0
-                            ? DateFormat("dd MMMM yyyy")
+                            ? DateFormat("dd MMMM yyyy hh:mm")
                                 .format(DateTime.fromMillisecondsSinceEpoch(
                                     dailyCase.data["data"][
                                                 dailyCase.data["data"].length -
