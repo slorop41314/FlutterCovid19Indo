@@ -78,37 +78,15 @@ class PatientInformation extends StatelessWidget {
                                 null
                             ? dailyCase.data["data"]
                                     [dailyCase.data["data"].length - 1]
-                                ["jumlahKasusKumulatif"]
+                                ["jumlahKasusKumulatif"].toString()
                             : dailyCase.data["data"]
                                     [dailyCase.data["data"].length - 2]
-                                ["jumlahKasusKumulatif"]
+                                ["jumlahKasusKumulatif"].toString()
                         : "...",
                     gapYesterday: dailyCase.data["data"].length > 0
                         ? dailyCase.data["data"]
                                 [dailyCase.data["data"].length - 1]
                             ["jumlahKasusBaruperHari"]
-                        : null,
-                  ),
-                ),
-                Expanded(
-                  child: InfoCard(
-                    type: "sembuh",
-                    numberOfCase: dailyCase.data["data"].length > 0
-                        ? dailyCase.data["data"]
-                                        [dailyCase.data["data"].length - 1]
-                                    ["jumlahPasienSembuh"] !=
-                                null
-                            ? dailyCase.data["data"]
-                                    [dailyCase.data["data"].length - 1]
-                                ["jumlahPasienSembuh"]
-                            : dailyCase.data["data"]
-                                    [dailyCase.data["data"].length - 2]
-                                ["jumlahPasienSembuh"]
-                        : "...",
-                    gapYesterday: dailyCase.data["data"].length > 0
-                        ? dailyCase.data["data"]
-                                [dailyCase.data["data"].length - 1]
-                            ["jumlahKasusSembuhperHari"]
                         : null,
                   ),
                 ),
@@ -122,15 +100,37 @@ class PatientInformation extends StatelessWidget {
                                 null
                             ? dailyCase.data["data"]
                                     [dailyCase.data["data"].length - 1]
-                                ["jumlahpasiendalamperawatan"]
+                                ["jumlahpasiendalamperawatan"].toString()
                             : dailyCase.data["data"]
                                     [dailyCase.data["data"].length - 2]
-                                ["jumlahpasiendalamperawatan"]
+                                ["jumlahpasiendalamperawatan"].toString()
                         : "...",
                     gapYesterday: dailyCase.data["data"].length > 0
                         ? dailyCase.data["data"]
                                 [dailyCase.data["data"].length - 1]
                             ["jumlahKasusDirawatperHari"]
+                        : null,
+                  ),
+                ),
+                Expanded(
+                  child: InfoCard(
+                    type: "sembuh",
+                    numberOfCase: dailyCase.data["data"].length > 0
+                        ? dailyCase.data["data"]
+                                        [dailyCase.data["data"].length - 1]
+                                    ["jumlahPasienSembuh"] !=
+                                null
+                            ? dailyCase.data["data"]
+                                    [dailyCase.data["data"].length - 1]
+                                ["jumlahPasienSembuh"].toString()
+                            : dailyCase.data["data"]
+                                    [dailyCase.data["data"].length - 2]
+                                ["jumlahPasienSembuh"].toString()
+                        : "...",
+                    gapYesterday: dailyCase.data["data"].length > 0
+                        ? dailyCase.data["data"]
+                                [dailyCase.data["data"].length - 1]
+                            ["jumlahKasusSembuhperHari"]
                         : null,
                   ),
                 ),
@@ -144,10 +144,10 @@ class PatientInformation extends StatelessWidget {
                                 null
                             ? dailyCase.data["data"]
                                     [dailyCase.data["data"].length - 1]
-                                ["jumlahPasienMeninggal"]
+                                ["jumlahPasienMeninggal"].toString()
                             : dailyCase.data["data"]
                                     [dailyCase.data["data"].length - 2]
-                                ["jumlahPasienMeninggal"]
+                                ["jumlahPasienMeninggal"].toString()
                         : "...",
                     gapYesterday: dailyCase.data["data"].length > 0
                         ? dailyCase.data["data"]
