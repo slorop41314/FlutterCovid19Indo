@@ -35,12 +35,12 @@ class HomeHeader extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Text(
-                    DateFormat.yMMMEd().format(DateTime.now()),
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(vertical: 10.0),
+                //   child: Text(
+                //     DateFormat.yMMMEd().format(DateTime.now()),
+                //   ),
+                // ),
               ],
             ),
           ),

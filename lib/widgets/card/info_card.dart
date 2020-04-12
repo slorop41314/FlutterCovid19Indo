@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class InfoCard extends StatelessWidget {
   String type;
-  int numberOfCase;
+  String numberOfCase;
   int gapYesterday;
 
-  InfoCard({@required this.type, this.numberOfCase = 0, this.gapYesterday});
+  InfoCard({@required this.type, this.numberOfCase = "0", this.gapYesterday});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -60,7 +60,7 @@ class InfoCard extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "today",
+                              "hari ini",
                               style: TextStyle(fontSize: 8),
                             )
                           ],
@@ -115,7 +115,7 @@ class InfoCard extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                "today",
+                                "hari ini",
                                 style: TextStyle(fontSize: 8),
                               )
                             ],
@@ -170,7 +170,7 @@ class InfoCard extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      "today",
+                                      "hari ini",
                                       style: TextStyle(fontSize: 8),
                                     )
                                   ],
@@ -225,7 +225,7 @@ class InfoCard extends StatelessWidget {
                                       ),
                                     ),
                                     Text(
-                                      "today",
+                                      "hari ini",
                                       style: TextStyle(fontSize: 8),
                                     )
                                   ],
