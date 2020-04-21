@@ -2,9 +2,7 @@
 
 A new Flutter project.
 # Download link
-
 https://drive.google.com/file/d/1OcBNXPSIN9NKMugni6K0G9YIuCM9bnNu/view?usp=sharing
-
 ## Getting Started
 
 This project is a starting point for a Flutter application.
