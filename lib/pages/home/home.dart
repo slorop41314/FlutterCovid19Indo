@@ -22,34 +22,34 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  BannerAd _bannerAd;
+  // BannerAd _bannerAd;
 
-  BannerAd createBannerAd() {
-    return BannerAd(
-      adUnitId: BannerAd.testAdUnitId,
-      size: AdSize.banner,
-      listener: (MobileAdEvent event) {
-        print("BannerAd event $event");
-      },
-    );
-  }
+  // BannerAd createBannerAd() {
+  //   return BannerAd(
+  //     adUnitId: BannerAd.testAdUnitId,
+  //     size: AdSize.banner,
+  //     listener: (MobileAdEvent event) {
+  //       print("BannerAd event $event");
+  //     },
+  //   );
+  // }
 
-  @override
-  void initState() {
-    super.initState();
-    FirebaseAdMob.instance.initialize(appId: FirebaseAdMob.testAppId);
-    _bannerAd = createBannerAd()..load();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   FirebaseAdMob.instance.initialize(appId: FirebaseAdMob.testAppId);
+  //   _bannerAd = createBannerAd()..load();
+  // }
 
-  @override
-  void dispose() {
-    _bannerAd?.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _bannerAd?.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
-    _bannerAd..load()..show();
+    // _bannerAd..load()..show();
     final provinceData =
         Provider.of<ProvinceCasesProvider>(context, listen: false);
 
